@@ -13,40 +13,40 @@ https://youtu.be/DvKC7BM126w
 
 During this video, I have covered the following topics:
 
-How to control relay with an inbuilt capacitive touch sensor of ESP32.
-Limitations for controlling multiple relays without TTP223 sensor.
-Control relays with TTP223 touch sensor.
-Explained the circuit and source code for connecting the TTP223 touch sensor.
+1. How to control relay with an inbuilt capacitive touch sensor of ESP32.
+2. Limitations for controlling multiple relays without TTP223 sensor.
+3. Control relays with TTP223 touch sensor.
+4. Explained the circuit and source code for connecting the TTP223 touch sensor.
 
 Here I have used one of my previous Blynk projects. So with this home automation project, you can control the appliances with Blynk IoT, Bluetooth, IR, and touch switch.
 
 So, you can easily make this touch-sensitive home automation project at home just by using an ESP32 and relay module or you can also use a custom-designed PCB for this project.
 
-Required components:
+**Required components:**
 
-ESP32 DevKIT V1
-4-channel 5V SPDT Relay Module
-TTP223 4-channel touch sensor
-TSOP1838 IR Receiver (with metallic case) Optional
-Any IR Remote
+1. ESP32 DevKIT V1
+2. 4-channel 5V SPDT Relay Module
+3. TTP223 4-channel touch sensor
+4. TSOP1838 IR Receiver (with metallic case) Optional
+5. Any IR Remote
+   
 You can make this project just by using ESP32, an 1838 IR receiver, and a 4-channel relay module. But if you use PCB then you need the following components.
 
-Required components for PCB:
+**Required components for PCB:**
 
-ESP32 DEVKIT V1
-DHT11 sensor
-1838 IR receiver (with metallic case)
-Relays 5v (SPDT) (4 no)
-BC547 Transistors (4 no)
-PC817 Optocuplors (4 no)
-510-ohm 0.25-watt Resistor (4 no) (R1 - R4)
-1k 0.25-watt Resistors (6 no) (R5 - R10)
-10k 0.25-watt Resistor (1 no) (R11)
-LED 5-mm (6 no)
-1N4007 Diodes (4 no) (D1 - D4)
-Push Buttons (4 no)
-Terminal Connectors
-5V DC supply
+1. ESP32 DEVKIT V1
+2. 1838 IR receiver (with metallic case)
+3. Relays 5v (SPDT) (4 no)
+4. BC547 Transistors (4 no)
+5. PC817 Optocuplors (4 no)
+6. 510-ohm 0.25-watt Resistor (4 no) (R1 - R4)
+7. 1k 0.25-watt Resistors (6 no) (R5 - R10)
+8. 10k 0.25-watt Resistor (1 no) (R11)
+9. LED 5-mm (6 no)
+10. 1N4007 Diodes (4 no) (D1 - D4)
+11. Push Buttons (4 no)
+12. Terminal Connectors
+13. 5V DC supply
 
 ## Inbuilt Capacitive Touch Sensor of ESP32
 The ESP32 is a popular microcontroller module that comes equipped with various built-in features, including an inbuilt capacitive touch sensor. This capacitive touch sensor is a part of the ESP32's GPIO (General-Purpose Input/Output) pins, which can be configured to sense touch or proximity without the need for additional external components.
@@ -211,27 +211,11 @@ Now open the main sketch (code).
 
 In the code, you have to update the BLYNK_TEMPLATE_ID, BLYNK_DEVICE_NAME, Auth Token,
 
-/* Fill-in your Template ID (only if using Blynk.Cloud) */
-#define BLYNK_TEMPLATE_ID ""
-#define BLYNK_TEMPLATE_NAME ""
-#define BLYNK_AUTH_TOKEN ""
-
-update the WiFi Credentials.
-
-// Set password to "" for open networks.
-char ssid[] = "";
-char pass[] = "";
+Update the WiFi Credentials.
 
 Then update the HEX codes of the IR remote as shown in the tutorial video.
 
-//Update the HEX code of IR Remote buttons 0x<HEX CODE>
-#define IR_Button_1   0x1FEE01F
-#define IR_Button_2   0x1FE10EF
-#define IR_Button_3   0x1FE906F
-#define IR_Button_4   0x1FE50AF
-#define IR_All_On     0x1FE807F
-#define IR_All_Off    0x1FE48B7
-
+Then Update the HEX code of IR Remote buttons 0x<HEX CODE>
 
 After doing these changes, go to Tools and select the board as "ESP32 Dev Module", Partition Scheme as "Huge APP (3MB...)" and the proper PORT in Arduino IDE.
 
@@ -241,14 +225,15 @@ Then click on the upload button to program the ESP32 board.
 While uploading the code to ESP32, if you use the PCB then you will see the "Connecting....___" text, then press and hold the BOOT button and then press the EN button, after that release both buttons.
 
 ## Install Blynk IoT App to Configure Mobile Dashboard
-Install the Blynk IoT app from the Google Play Store or App Store. Then log in.
-Go to Developer Mode.
-Tap on the template that you have already made.
-Now go to the Widget box (on the right) to add widgets.
-Add 4 Button widgets from the Widget Box.
-Go to the Button widget settings.
-Enter the name, select Datastream, Mode will be Switch. Then exit.
-After setting all the Buttons tap on exit.
+
+1. Install the Blynk IoT app from the Google Play Store or App Store. Then log in.
+2. Go to Developer Mode.
+3. Tap on the template that you have already made.
+4. Now go to the Widget box (on the right) to add widgets.
+5. Add 4 Button widgets from the Widget Box.
+6. Go to the Button widget settings.
+7. Enter the name, select Datastream, Mode will be Switch. Then exit.
+8. After setting all the Buttons tap on exit.
 
 ## Download and Setup the Bluetooth App
 If the ESP32 is not connected to WiFi, still you can control the relays from mobile using Bluetooth.
@@ -258,12 +243,12 @@ Please download and install the Bluetooth App (GitHub Link): https://github.com/
 
 Then you have to connect the Bluetooth App with ESP32.
 
-Turn ON mobile Bluetooth and Pair the ESP32.
-Open the Bluetooth Switch App and tap on "Tap to Connect".
-Select the "ESP32_BT" from the list.
-Now, you can control the relay from a mobile with Bluetooth.
-You have to provide "Nearby Device" Permission to this app. Otherwise, it will not be able to search nearby Bluetooth devices.
-Download the Bluetooth App for the ESP32 Bluetooth project.
+1. Turn ON mobile Bluetooth and Pair the ESP32.
+2. Open the Bluetooth Switch App and tap on "Tap to Connect".
+3. Select the "ESP32_BT" from the list.
+4. Now, you can control the relay from a mobile with Bluetooth.
+5. You have to provide "Nearby Device" Permission to this app. Otherwise, it will not be able to search nearby Bluetooth devices.
+
 
 ## Now Connect the TTP223 Touch Sensor As Per Circuit
 Now connect the TTP223 Touch Sensor with the PCB as per the circuit.
